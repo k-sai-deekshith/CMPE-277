@@ -10,7 +10,8 @@ import android.view.View;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    int threadCounter = 0;
+    int threadCounter = 1;
+    int restartCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +22,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
+
         threadCounter += 0;
 
         TextView threadCounterText = findViewById(R.id.thread_counter_txt);
         threadCounterText.setText("Thread Counter: " + String.valueOf(threadCounter));
+
+        restartCounter += 1;
+
+        TextView restartCounterText = findViewById(R.id.restart_counter_txt);
+        restartCounterText.setText("Restart Counter: " + String.valueOf(restartCounter));
     }
 
     public void onStartActivityB (View view) {
